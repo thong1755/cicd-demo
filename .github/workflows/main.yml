@@ -1,20 +1,11 @@
-name: CI Example Workflow          # Tên workflow
-on: [push, pull_request]           # Khi nào workflow chạy (trigger)
+name: My First Workflow
+on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest         # Môi trường chạy
+  hello_world:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code        # B1: Clone repo
+      - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Setup Python         # B2: Cài môi trường
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-
-      - name: Install dependencies # B3: Cài thư viện
-        run: pip install -r requirements.txt
-
-      - name: Run tests            # B4: Chạy test
-        run: pytest
+      - name: Say hello
+        run: echo "Hello, CI/CD world!"
